@@ -16,10 +16,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ProductID")
     private int id;
+
     @Column(nullable = false)
     private String productname;
-    private int supplierid;
-    private int categoryid;
+
+    @ManyToOne
+    @JoinColumn(name = "SupplierID")
+    private Supplier supplier;
+
+    @ManyToOne
+    @JoinColumn(name = "CategoryID")
+    private Category category;
+
+
     private String quantityperunit;
     private BigDecimal unitprice;
     private int unitsinstock;

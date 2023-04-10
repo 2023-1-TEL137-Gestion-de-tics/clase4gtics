@@ -17,11 +17,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="supplier" class="form-label">Proveedor</label>
-                        <input type="text" class="form-control" name="supplier" id="supplier">
+                        <select name="supplier" id="supplier" class="form-select">
+                            <option th:each="transportista : ${listaTransportistas}"
+                                    th:value="${transportista.id}"
+                                    th:text="${transportista.companyname}"></option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="category" class="form-label">Categoría</label>
-                        <input type="text" class="form-control" name="category" id="category">
+                        <select name="category" id="category" class="form-select">
+                            <option th:each="categoria : ${listaCategorias}"
+                                    th:value="${categoria.id}"
+                                    th:text="${categoria.categoryname}"></option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="quantityperunit" class="form-label">Cantidad por unidad</label>
